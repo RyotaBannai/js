@@ -1,2 +1,2 @@
-# JS_Playground
-JS playground storing Ideas!
+### 
+- map() や reduce() と異なり、返値は常に `undefined` であり、チェーンできません。チェーンの最後に副作用を生じさせるのが典型的な使用法です。
