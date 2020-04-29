@@ -8,13 +8,12 @@ let de = ({
                   },
               radius = 25 }) => {
     log(size, [xVal, yVal, zVal], radius)
-}
-let main = () => {
+};
+(main = () => {
     de({
         coords: {
             x: 10,
             z: 20
         }
     })
-}
-main()
+})();
