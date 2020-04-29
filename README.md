@@ -50,3 +50,13 @@ callback = callback || (() => {});    // ok
 - A getter defers the cost of calculating the value until the value is needed. **If it is never needed, you never pay the cost.**
 - An additional optimization technique to **lazify** or delay the calculation of a property value and cache it for later access are **smart (or "memoized") getters**. The value is calculated the first time the getter is called, and is then cached so subsequent accesses return the cached value without recalculating it. This is useful in the following situations. **value will never be changed or shouldn't be re-calculated.** : The benefit of using **Lazy Values** is that they don't have to be computed during the initialization of your app.
 - JSON permits only property definition using `"property": value` syntax.  The property name must be double-quoted, and the definition cannot be a shorthand
+
+### Nullish Coalescing 
+- However, due to `||` being a boolean logical operator, the left hand-side operand was coerced to a boolean for the evaluation and any **falsy value** (`0, '', NaN, null, undefined`) was not returned. This behavior may cause unexpected consequences if you consider `0`, `''`, or `NaN` as valid values.
+- The **nullish coalescing operator** avoids this pitfall by only returning the second operand when the first one evaluates to either `null` or `undefined` (but no other falsy values):
+```javascript
+null || undefined ?? "foo"; // raises a SyntaxError
+true || undefined ?? "foo"; // raises a SyntaxError
+(null || undefined) ?? "foo"; // returns "foo"
+```
+- optional chaining operator (`?.`) 
