@@ -1,6 +1,4 @@
 let log = console.log;
-var i = 'called me?';
-
 (()=>{
     let i = 0;
     let obj = {
