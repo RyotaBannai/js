@@ -3,6 +3,8 @@ function Counter(){
     this.count = 0;
 }
 Counter.prototype = {
+    // ここでadd にarrowで宣言すると、this の参照が Counter出なくて、globalを参照してしまうからうまくいかない.
+    // 普通のfunctionは non-strict modeで宣言するとの参照先のthis はglobal。でprototypeを使うときは都合が良い。
     add: function(array){
         array.forEach(entry => {
             this.sum += entry;

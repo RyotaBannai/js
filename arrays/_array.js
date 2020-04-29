@@ -16,3 +16,8 @@ console.log(reversed);
 const data = ['a', 'b', 'c', 'a', 'b', 'd'];
 const dist = [...(new Set(data))];
 const sum = (...nums) => nums.reduce((p, c) => p + c);
+
+const arr1 = [1, 2, [3, 4]];
+console.log(arr1.flat())
+const arr2 = [1,2,,4]
+console.log(arr2.flat()) // removes empty slots in arrays.
