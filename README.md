@@ -73,3 +73,26 @@ true || undefined ?? "foo"; // raises a SyntaxError
     - メソッド = this.data みたいなのを返すメソッドでなんでもok
     - 参照 `./eventListener/_this.js@Bind3` ポイントはメソッド呼び出しの部分ではthis は解決できないので、いったん別の変数に退避する必要があること。
 - [参照](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener)
+### [イベントリスナ確認方法](https://ja.stackoverflow.com/questions/2443/%E8%A8%AD%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%A9%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95)
+### メモリに関する問題
+- 1 では 新しい匿名関数がループごとに作られる
+- 2 では、前に宣言された同じ関数がイベントハンドラとして使われているため、単に参照するだけなのでメモリの消費が抑えられる。
+- さらに2では匿名関数なのでremoveEventListner()を実行することが不可能なのに対し、2では消去可能である。
+```javascript
+var i;
+var els = document.getElementsByTagName('*');
+
+// ケース 1
+for(i=0 ; i<els.length ; i++){
+  els[i].addEventListener("click", function(e){/*関数の処理*/}, false);
+}
+
+// ケース 2
+function processEvent(e){
+  /*関数の処理*/
+}
+
+for(i=0 ; i<els.length ; i++){
+  els[i].addEventListener("click", processEvent, false);
+}
+```
