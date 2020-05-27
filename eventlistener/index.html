@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./broserify_output/bundle.js"></script>
+    <script>
+        var show = function () {
+            alert(this); // window object
+        }
+    </script>
+</head>
+<body>
+    <h3>Event Lister</h3>
+     <div id="_div">
+         <span>
+             <button type="button" onclick="show();">Button</button>
+         </span>
+         <span>
+             <button type="button" id="bind_this">Button</button>
+         </span>
+     </div>
+</body>
+</html>
