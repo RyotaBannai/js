@@ -77,7 +77,7 @@ true || undefined ?? "foo"; // raises a SyntaxError
 ### メモリに関する問題
 - 1 では 新しい匿名関数がループごとに作られる
 - 2 では、前に宣言された同じ関数がイベントハンドラとして使われているため、単に参照するだけなのでメモリの消費が抑えられる。
-- さらに2では匿名関数なのでremoveEventListner()を実行することが不可能なのに対し、2では消去可能である。
+- さらに1では匿名関数なのでremoveEventListner()を実行することが不可能なのに対し、2では消去可能である。
 ```javascript
 var i;
 var els = document.getElementsByTagName('*');
