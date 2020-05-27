@@ -5,7 +5,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // var checkConsoleLog = new Bind(document.body); //click anywhere on the screen.
     // var checkConsoleLog = new Bind2(document.body);
     var checkConsoleLog = new Bind3(document.body);
+    // checkEventListner();
+    $('#bind_this').on('click', function(){
+        console.log('#bind_this');
+    });
+    checkEventListner2();
 });
+
+function checkEventListner () {
+    let onclick = $("#old_style").get(0).onclick;
+    console.log(onclick);
+    /*
+    * こんな感じで確認できる。
+    * ƒ onclick(event) {
+    *   show();
+    * }
+    * */
+}
+
+function checkEventListner2 () {
+    // let events = $._data($("#old_style").get(0)).events; // onclick props でつけたのはこれでは取得できない
+    let events = $._data($("#bind_this").get(0)).events;
+    $.each(events.click, function(){
+        console.log(this.handler);
+        console.log(this.selector);
+    });
+    /*
+    * ƒ (){
+        console.log('#bind_this');
+    }
+    * */
+}
 
 var Bind = function(element) {
     this.name = 'Bind function';
