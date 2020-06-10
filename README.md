@@ -116,8 +116,17 @@ var obj = new SomeObject();
 ```
 - `Object.setPrototypeOf()`
 ```javascript
-function SomeObject() {} // a constructor function
-SomeObject.prototype.someMethod = function () {};
+const STORE = {
+  item: function() {}
+};
 
-var obj = new SomeObject();
+
+Object.setPrototypeOf(STORE.item, {
+  add: function() {
+    alert('test 123');
+  }
+})
+
+
+STORE.item.add();
 ```
