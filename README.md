@@ -96,3 +96,28 @@ for(i=0 ; i<els.length ; i++){
   els[i].addEventListener("click", processEvent, false);
 }
 ```
+### First-class Object 
+- The `prototype object` is meant to be used on `constructor functions`, basically functions that will be called using the new operator to create `new` object instances. `Functions` in JavaScript are `first-class objects`, which means y`ou can add members to them and treat them just like ordinary objects`:
+```javascript
+let STORE = {
+   item : function() {
+  }
+};
+
+STORE.item.add = function() { alert('test 123'); };
+STORE.item.add();
+```
+- A typical use of the prototype object as I mentioned above, is when you `instantiate an object by calling a constructor function` with the new operator, for example:
+```javascript
+function SomeObject() {} // a constructor function
+SomeObject.prototype.someMethod = function () {};
+
+var obj = new SomeObject();
+```
+- `Object.setPrototypeOf()`
+```javascript
+function SomeObject() {} // a constructor function
+SomeObject.prototype.someMethod = function () {};
+
+var obj = new SomeObject();
+```
